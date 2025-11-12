@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "checkpoint_time": "2025-11-11T23:54:09.083179",
+    "checkpoint_time": "2025-11-12T01:17:55.085498",
     "article_count": 25,
     "filtered_count": 32,
     "failed_count": 0
@@ -30,7 +30,7 @@
         "partselect": [],
         "manufacturer": []
       },
-      "scraped_at": "2025-11-11T23:52:34.138952"
+      "scraped_at": "2025-11-12T01:16:17.344458"
     },
     {
       "id": "blog_0002",
@@ -52,7 +52,7 @@
         "partselect": [],
         "manufacturer": []
       },
-      "scraped_at": "2025-11-11T23:52:36.867279"
+      "scraped_at": "2025-11-12T01:16:21.100699"
     },
     {
       "id": "blog_0003",
@@ -74,7 +74,7 @@
         "partselect": [],
         "manufacturer": []
       },
-      "scraped_at": "2025-11-11T23:52:39.346705"
+      "scraped_at": "2025-11-12T01:16:23.587358"
     },
     {
       "id": "blog_0004",
@@ -96,7 +96,7 @@
         "partselect": [],
         "manufacturer": []
       },
-      "scraped_at": "2025-11-11T23:52:43.008868"
+      "scraped_at": "2025-11-12T01:16:27.440854"
     },
     {
       "id": "blog_0005",
@@ -118,7 +118,7 @@
         "partselect": [],
         "manufacturer": []
       },
-      "scraped_at": "2025-11-11T23:52:45.648372"
+      "scraped_at": "2025-11-12T01:16:31.214360"
     },
     {
       "id": "blog_0006",
@@ -140,7 +140,7 @@
         "partselect": [],
         "manufacturer": []
       },
-      "scraped_at": "2025-11-11T23:52:48.434948"
+      "scraped_at": "2025-11-12T01:16:34.897302"
     },
     {
       "id": "blog_0007",
@@ -162,7 +162,7 @@
         "partselect": [],
         "manufacturer": []
       },
-      "scraped_at": "2025-11-11T23:52:51.770047"
+      "scraped_at": "2025-11-12T01:16:38.962676"
     },
     {
       "id": "blog_0008",
@@ -184,7 +184,7 @@
         "partselect": [],
         "manufacturer": []
       },
-      "scraped_at": "2025-11-11T23:52:54.134924"
+      "scraped_at": "2025-11-12T01:16:42.812517"
     },
     {
       "id": "blog_0009",
@@ -206,7 +206,7 @@
         "partselect": [],
         "manufacturer": []
       },
-      "scraped_at": "2025-11-11T23:52:59.277532"
+      "scraped_at": "2025-11-12T01:16:50.372847"
     },
     {
       "id": "blog_0010",
@@ -228,7 +228,7 @@
         "partselect": [],
         "manufacturer": []
       },
-      "scraped_at": "2025-11-11T23:53:02.265750"
+      "scraped_at": "2025-11-12T01:16:52.706322"
     },
     {
       "id": "blog_0011",
@@ -250,7 +250,7 @@
         "partselect": [],
         "manufacturer": []
       },
-      "scraped_at": "2025-11-11T23:53:04.852468"
+      "scraped_at": "2025-11-12T01:16:56.572017"
     },
     {
       "id": "blog_0012",
@@ -272,7 +272,7 @@
         "partselect": [],
         "manufacturer": []
       },
-      "scraped_at": "2025-11-11T23:53:08.651665"
+      "scraped_at": "2025-11-12T01:17:00.213656"
     },
     {
       "id": "blog_0013",
@@ -296,7 +296,7 @@
         "partselect": [],
         "manufacturer": []
       },
-      "scraped_at": "2025-11-11T23:53:10.875152"
+      "scraped_at": "2025-11-12T01:17:03.242326"
     },
     {
       "id": "blog_0014",
@@ -321,7 +321,7 @@
         "partselect": [],
         "manufacturer": []
       },
-      "scraped_at": "2025-11-11T23:53:15.017104"
+      "scraped_at": "2025-11-12T01:17:07.160506"
     },
     {
       "id": "blog_0015",
@@ -346,7 +346,7 @@
         "partselect": [],
         "manufacturer": []
       },
-      "scraped_at": "2025-11-11T23:53:18.035847"
+      "scraped_at": "2025-11-12T01:17:11.182218"
     },
     {
       "id": "blog_0016",
@@ -375,7 +375,7 @@
         "partselect": [],
         "manufacturer": []
       },
-      "scraped_at": "2025-11-11T23:53:25.153743"
+      "scraped_at": "2025-11-12T01:17:17.501393"
     },
     {
       "id": "blog_0017",
@@ -403,7 +403,7 @@
         "partselect": [],
         "manufacturer": []
       },
-      "scraped_at": "2025-11-11T23:53:28.623267"
+      "scraped_at": "2025-11-12T01:17:20.012815"
     },
     {
       "id": "blog_0018",
@@ -425,7 +425,7 @@
         "partselect": [],
         "manufacturer": []
       },
-      "scraped_at": "2025-11-11T23:53:35.546263"
+      "scraped_at": "2025-11-12T01:17:24.987547"
     },
     {
       "id": "blog_0019",
@@ -451,7 +451,7 @@
         "partselect": [],
         "manufacturer": []
       },
-      "scraped_at": "2025-11-11T23:53:39.219370"
+      "scraped_at": "2025-11-12T01:17:27.442459"
     },
     {
       "id": "blog_0020",
@@ -473,7 +473,7 @@
         "partselect": [],
         "manufacturer": []
       },
-      "scraped_at": "2025-11-11T23:53:43.078696"
+      "scraped_at": "2025-11-12T01:17:30.783306"
     },
     {
       "id": "blog_0021",
@@ -501,7 +501,7 @@
         "partselect": [],
         "manufacturer": []
       },
-      "scraped_at": "2025-11-11T23:53:46.931303"
+      "scraped_at": "2025-11-12T01:17:34.210874"
     },
     {
       "id": "blog_0022",
@@ -523,7 +523,7 @@
         "partselect": [],
         "manufacturer": []
       },
-      "scraped_at": "2025-11-11T23:53:49.631084"
+      "scraped_at": "2025-11-12T01:17:36.523647"
     },
     {
       "id": "blog_0023",
@@ -545,7 +545,7 @@
         "partselect": [],
         "manufacturer": []
       },
-      "scraped_at": "2025-11-11T23:53:53.608645"
+      "scraped_at": "2025-11-12T01:17:40.095164"
     },
     {
       "id": "blog_0024",
@@ -567,7 +567,7 @@
         "partselect": [],
         "manufacturer": []
       },
-      "scraped_at": "2025-11-11T23:53:59.292299"
+      "scraped_at": "2025-11-12T01:17:46.663156"
     },
     {
       "id": "blog_0025",
@@ -589,67 +589,67 @@
         "partselect": [],
         "manufacturer": []
       },
-      "scraped_at": "2025-11-11T23:54:03.264830"
+      "scraped_at": "2025-11-12T01:17:50.275373"
     }
   ],
   "failed_urls": [],
   "seen_urls": [
-    "https://www.partselect.com/blog/maytag-washer-lf-error-code/",
-    "https://www.partselect.com/blog/how-to-fix-a-torn-refrigerator-door-seal/",
-    "https://www.partselect.com/blog/LG-washer-error-code-LE/",
-    "https://www.partselect.com/blog/whirlpool-washer-f20-error-code/",
-    "https://www.partselect.com/blog/amana-washer-not-spinning-guide/",
-    "https://www.partselect.com/blog/why-dishwasher-stops-mid-cycle/",
-    "https://www.partselect.com/blog/fridge-frost-buildup-troubleshoot/",
+    "https://www.partselect.com/blog/dryer-thermal-fuse-guide/",
     "https://www.partselect.com/blog/prevent-ice-buildup-in-freezer/",
-    "https://www.partselect.com/blog/fix-broken-refrigerator-ice-maker/",
-    "https://www.partselect.com/blog/kenmore-dryer-not-heating/",
-    "https://www.partselect.com/blog/dishwasher-stopping-mid-cycle/",
-    "https://www.partselect.com/blog/washing-machine-hoses-universal/",
-    "https://www.partselect.com/blog/how-to-fix-frigidaire-freezer-not-freezing/",
-    "https://www.partselect.com/blog/fix-broken-microwave-exhaust-fan/",
-    "https://www.partselect.com/blog/what-does-lg-washer-cl-code-mean/",
-    "https://www.partselect.com/blog/frigidaire-oven-f11-code/",
-    "https://www.partselect.com/blog/electrolux-washer-e21-code/",
-    "https://www.partselect.com/blog/bosch-ice-maker-not-working/",
-    "https://www.partselect.com/blog/samsung-washer-4c-error-code/",
-    "https://www.partselect.com/blog/how-to-fix-a-ge-dryer-that-wont-start/",
-    "https://www.partselect.com/blog/refrigerator-not-cooling/",
-    "https://www.partselect.com/blog/leaky-faucet-repairs/",
+    "https://www.partselect.com/blog/why-is-my-fridge-noisy/",
     "https://www.partselect.com/blog/how-to-fix-frigidaire-dishwasher-not-draining/",
-    "https://www.partselect.com/blog/six-reasons-why-lawnmower-wont-start/",
-    "https://www.partselect.com/blog/lg-dishwasher-ae-error-code/",
-    "https://www.partselect.com/blog/guide-to-replacing-a-dryer-belt/",
-    "https://www.partselect.com/blog/maytag-whirlpool-loc-error-code/",
-    "https://www.partselect.com/blog/ge-air-conditioner-88-error-code/",
-    "https://www.partselect.com/blog/dryer-baffle-repair/",
-    "https://www.partselect.com/blog/lg-oven-f9-error-code/",
+    "https://www.partselect.com/blog/refrigerator-humming-noise/",
+    "https://www.partselect.com/blog/fridge-frost-buildup-troubleshoot/",
+    "https://www.partselect.com/blog/how-to-fix-frigidaire-freezer-not-freezing/",
     "https://www.partselect.com/blog/repair-or-replace-microwave/",
-    "https://www.partselect.com/blog/repair-or-replace-refrigerator-shelf/",
     "https://www.partselect.com/blog/how-to-reset-a-ge-profile-ice-maker/",
     "https://www.partselect.com/blog/smoking-lawn-mower-troubleshooting/",
-    "https://www.partselect.com/blog/bosch-dishwasher-e15-error-code/",
-    "https://www.partselect.com/blog/dryer-thermal-fuse-guide/",
-    "https://www.partselect.com/blog/why-wont-my-leaf-blower-start/",
-    "https://www.partselect.com/blog/refrigerator-compressor-getting-hot/",
-    "https://www.partselect.com/blog/bosch-dishwasher-not-starting-and-red-light/",
-    "https://www.partselect.com/blog/why-is-my-fridge-noisy/",
+    "https://www.partselect.com/blog/dishwasher-stopping-mid-cycle/",
     "https://www.partselect.com/blog/samsung-washer-1e-code/",
-    "https://www.partselect.com/blog/whirlpool-washer-not-spinning-guide/",
-    "https://www.partselect.com/blog/how-to-unlock-whirlpool-washer/",
-    "https://www.partselect.com/blog/what-does-samsung-dishwasher-blinking-heavy-mean/",
-    "https://www.partselect.com/blog/refrigerator-humming-noise/",
-    "https://www.partselect.com/blog/ice-maker-troubleshooting/",
-    "https://www.partselect.com/blog/samsung-ice-maker-not-working/",
-    "https://www.partselect.com/blog/dryer-tearing-clothes/",
-    "https://www.partselect.com/blog/how-to-fix-fridge-that-is-too-warm/",
-    "https://www.partselect.com/blog/how-to-maintain-lawn-and-mower/",
-    "https://www.partselect.com/blog/refrigerator-tripping-breaker/",
-    "https://www.partselect.com/blog/fridge-freezing-food/",
-    "https://www.partselect.com/blog/samsung-dryer-3C-error-code/",
-    "https://www.partselect.com/blog/how-to-fix-no-pressure-in-a-pressure-washer/",
-    "https://www.partselect.com/blog/how-to-fix-a-sparking-microwave/",
     "https://www.partselect.com/blog/fix-noisy-dishwasher/",
-    "https://www.partselect.com/blog/why-is-my-whirlpool-washer-stuck-on-sensing/"
+    "https://www.partselect.com/blog/lg-oven-f9-error-code/",
+    "https://www.partselect.com/blog/guide-to-replacing-a-dryer-belt/",
+    "https://www.partselect.com/blog/fix-broken-refrigerator-ice-maker/",
+    "https://www.partselect.com/blog/bosch-dishwasher-not-starting-and-red-light/",
+    "https://www.partselect.com/blog/refrigerator-not-cooling/",
+    "https://www.partselect.com/blog/how-to-fix-no-pressure-in-a-pressure-washer/",
+    "https://www.partselect.com/blog/lg-dishwasher-ae-error-code/",
+    "https://www.partselect.com/blog/amana-washer-not-spinning-guide/",
+    "https://www.partselect.com/blog/six-reasons-why-lawnmower-wont-start/",
+    "https://www.partselect.com/blog/fridge-freezing-food/",
+    "https://www.partselect.com/blog/what-does-samsung-dishwasher-blinking-heavy-mean/",
+    "https://www.partselect.com/blog/maytag-whirlpool-loc-error-code/",
+    "https://www.partselect.com/blog/samsung-dryer-3C-error-code/",
+    "https://www.partselect.com/blog/dryer-tearing-clothes/",
+    "https://www.partselect.com/blog/how-to-fix-a-sparking-microwave/",
+    "https://www.partselect.com/blog/samsung-washer-4c-error-code/",
+    "https://www.partselect.com/blog/washing-machine-hoses-universal/",
+    "https://www.partselect.com/blog/refrigerator-compressor-getting-hot/",
+    "https://www.partselect.com/blog/whirlpool-washer-f20-error-code/",
+    "https://www.partselect.com/blog/bosch-dishwasher-e15-error-code/",
+    "https://www.partselect.com/blog/how-to-fix-fridge-that-is-too-warm/",
+    "https://www.partselect.com/blog/electrolux-washer-e21-code/",
+    "https://www.partselect.com/blog/repair-or-replace-refrigerator-shelf/",
+    "https://www.partselect.com/blog/kenmore-dryer-not-heating/",
+    "https://www.partselect.com/blog/leaky-faucet-repairs/",
+    "https://www.partselect.com/blog/ge-air-conditioner-88-error-code/",
+    "https://www.partselect.com/blog/dryer-baffle-repair/",
+    "https://www.partselect.com/blog/refrigerator-tripping-breaker/",
+    "https://www.partselect.com/blog/whirlpool-washer-not-spinning-guide/",
+    "https://www.partselect.com/blog/why-wont-my-leaf-blower-start/",
+    "https://www.partselect.com/blog/maytag-washer-lf-error-code/",
+    "https://www.partselect.com/blog/what-does-lg-washer-cl-code-mean/",
+    "https://www.partselect.com/blog/how-to-fix-a-ge-dryer-that-wont-start/",
+    "https://www.partselect.com/blog/samsung-ice-maker-not-working/",
+    "https://www.partselect.com/blog/why-is-my-whirlpool-washer-stuck-on-sensing/",
+    "https://www.partselect.com/blog/LG-washer-error-code-LE/",
+    "https://www.partselect.com/blog/frigidaire-oven-f11-code/",
+    "https://www.partselect.com/blog/ice-maker-troubleshooting/",
+    "https://www.partselect.com/blog/why-dishwasher-stops-mid-cycle/",
+    "https://www.partselect.com/blog/bosch-ice-maker-not-working/",
+    "https://www.partselect.com/blog/how-to-unlock-whirlpool-washer/",
+    "https://www.partselect.com/blog/how-to-fix-a-torn-refrigerator-door-seal/",
+    "https://www.partselect.com/blog/fix-broken-microwave-exhaust-fan/",
+    "https://www.partselect.com/blog/how-to-maintain-lawn-and-mower/"
   ]
 }

@@ -8,24 +8,29 @@ Modules:
 - config: Configuration constants and settings
 - utils: Shared utility functions
 - blog_scraper: Blog article scraper
-- part_scraper: Part detail scraper (future)
-- repair_guide_scraper: Repair guide scraper (future)
+- parts_scraper: Parts catalog and pricing scraper
+- repair_scraper: Repair symptom and troubleshooting guide scraper
 
-Usage:
-    from scrapers.blog_scraper import BlogScraper
-
+Usage Examples:
+    # Blog scraper (50+ articles across 5 topics)
+    from scrapers import BlogScraper
     scraper = BlogScraper()
     scraper.scrape_all_topics()
-    scraper.save_to_json('data/raw/blogs_raw.json')
 
-Author: PartSelect Case Study
-Date: 2024-11-11
+    # Repair scraper (21 symptom guides: 12 fridge + 9 dishwasher)
+    from scrapers import RepairScraper
+    scraper = RepairScraper()
+    scraper.scrape_all_appliances()
+
+    # Parts scraper (1000s of parts across brands)
+    from scrapers import PartsScraper
+    scraper = PartsScraper()
+    scraper.scrape_all_appliances()
 """
-
-__version__ = '1.0.0'
-__author__ = 'PartSelect Case Study'
 
 # Import main classes for easier access
 from .blog_scraper import BlogScraper
+from .repair_scraper import RepairScraper
+from .parts_scraper import PartsScraper
 
-__all__ = ['BlogScraper']
+__all__ = ['BlogScraper', 'RepairScraper', 'PartsScraper']

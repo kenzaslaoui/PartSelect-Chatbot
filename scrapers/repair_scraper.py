@@ -205,13 +205,78 @@ class RepairScraper:
 
             if name and url:
                 absolute_url = make_absolute_url(url, base_url)
-                symptom_links.append({
-                    'name': name,
-                    'url': absolute_url
-                })
-                logger.debug(f"Found symptom: {name} -> {absolute_url}")
+
+                # Filter out category pages and brand pages - only keep actual symptom pages
+                # Symptom URLs have 3+ segments after /Repair/
+                # e.g., /Repair/Refrigerator/Running-Too-Long/ (actual symptom)
+                # Not:  /Repair/Refrigerator/ (category)
+                # Not:  /Repair/Dishwasher/Amana-Dishwasher-Repair/ (brand page)
+                if self._is_actual_symptom_url(absolute_url, name):
+                    symptom_links.append({
+                        'name': name,
+                        'url': absolute_url
+                    })
+                    logger.debug(f"Found symptom: {name} -> {absolute_url}")
+                else:
+                    logger.debug(f"Skipped non-symptom page: {name} -> {absolute_url}")
 
         return symptom_links
+
+    def _is_actual_symptom_url(self, url: str, symptom_name: str = None) -> bool:
+        """
+        Check if a URL is an actual symptom page or a category/brand page.
+
+        Real symptom URLs have the structure: /Repair/[Appliance]/[Symptom]/
+        Category URLs have only: /Repair/ or /Repair/[Appliance]/
+        Brand pages should be skipped: /Repair/[Appliance]/[Brand]-[Appliance]-Repair/
+
+        Args:
+            url: Full URL to check
+            symptom_name: Optional symptom name to check for brand keywords
+
+        Returns:
+            bool: True if it's an actual symptom page, False if it's a category or brand page
+        """
+        try:
+            # Extract the path from the URL
+            from urllib.parse import urlparse
+            parsed = urlparse(url)
+            path = parsed.path.rstrip('/')  # Remove trailing slash
+
+            # Split path into segments
+            segments = [s for s in path.split('/') if s]  # Filter out empty segments
+
+            # Find the index of 'Repair' in the segments
+            if 'Repair' not in segments:
+                return False
+
+            repair_index = segments.index('Repair')
+
+            # Count segments after 'Repair'
+            # Symptom pages should have at least 2 segments after Repair
+            # (appliance type + symptom name)
+            segments_after_repair = len(segments) - repair_index - 1
+
+            if segments_after_repair < 2:
+                return False
+
+            # Filter out brand pages
+            # Brand pages end with pattern like "Amana-Dishwasher-Repair", "Bosch-Dishwasher-Repair"
+            # Check if the last segment contains brand name + appliance type + "repair"
+            if symptom_name:
+                symptom_lower = symptom_name.lower()
+                # Skip if it looks like a brand page (contains "Repair" at the end)
+                if symptom_lower.endswith('repair') or ' repair' in symptom_lower:
+                    # Check if it also contains an appliance type name (refrigerator, dishwasher, etc.)
+                    from .config import APPLIANCE_TYPES
+                    for appliance in APPLIANCE_TYPES:
+                        if appliance.lower() in symptom_lower:
+                            return False  # This is likely a brand page
+
+            return True
+        except Exception as e:
+            logger.warning(f"Error checking URL structure for {url}: {e}")
+            return False
 
     def _scrape_symptom_page(
         self,
@@ -369,31 +434,37 @@ class RepairScraper:
             # Extract repair guide/tutorial links (e.g., "How to check a timer", "How to replace a timer")
             all_links = desc_section.find_all('a', href=True)
             repair_guides = []
-            
+
             for link in all_links:
                 href = link.get('href', '')
                 href_lower = href.lower()
                 link_text = link.get_text(strip=True).lower()
-                
+
                 # Skip navigation/help links
-                if (href.startswith('#') or 
+                if (href.startswith('#') or
                     'find-your-model-number' in href_lower or
-                    'model-number' in href_lower or 
+                    'model-number' in href_lower or
                     'model number' in link_text or
                     'view all' in link_text or
                     'need help' in link_text):
                     continue
-                
+
                 # Keep repair guide links (contain "repair.htm" in URL)
                 # Examples: dishwasher+test-motor+repair.htm, dishwasher+replace-timer+repair.htm
                 if 'repair.htm' in href_lower:
                     absolute_url = make_absolute_url(href, 'https://www.partselect.com')
+                    title = link.get_text(strip=True)
+
+                    # Scrape content from the repair guide page
+                    guide_content = self._scrape_repair_guide_content(absolute_url)
+
                     repair_guides.append({
-                        'title': link.get_text(strip=True),
-                        'url': absolute_url
+                        'title': title,
+                        'url': absolute_url,
+                        'content': guide_content
                     })
 
-            part = {
+            section = {
                 'name': part_name,
                 'description': description,
                 'repair_guides': repair_guides if repair_guides else None,
@@ -401,34 +472,34 @@ class RepairScraper:
                 # They're available from the parts_scraper which has already scraped that data
             }
 
-            parts.append(part)
+            parts.append(section)
 
         return parts
 
     def _extract_inspection_steps(self, soup: BeautifulSoup) -> List[Dict[str, Any]]:
         """
-        Extract inspection steps.
-        
+        Extract inspection steps grouped by part name.
+
         In the new structure, inspection steps are embedded within the part descriptions
-        as ordered lists (ol) with step-by-step instructions. We'll extract these from
-        the part description sections.
+        as ordered lists (ol) with step-by-step instructions. We organize these by part
+        title, returning a list with part_name and steps list.
 
         Args:
             soup: BeautifulSoup object
 
         Returns:
-            list: List of step dictionaries
+            list: List of dicts with 'part_name' and 'steps' keys
         """
-        steps = []
-        
+        steps_by_part = {}  # Dict to group steps by part title
+
         # Look for ordered lists in the part description sections
         parts_section = soup.select_one(REPAIR_SELECTORS['parts_section'])
         if not parts_section:
-            return steps
+            return []
 
         # Find all ordered lists in part descriptions
         step_lists = parts_section.select('div.symptom-list__desc ol')
-        
+
         for step_list in step_lists:
             # Get the parent part section to find the part name
             part_section = step_list.find_parent('div', class_='symptom-list__desc')
@@ -438,20 +509,97 @@ class RepairScraper:
                 if prev_title:
                     part_title = prev_title.get_text(strip=True)
 
+            if not part_title:
+                continue
+
             # Extract individual steps from the ordered list
             list_items = step_list.find_all('li')
+            steps_list = []
             for idx, item in enumerate(list_items, 1):
                 step_text = item.get_text(strip=True)
                 if step_text:
-                    step = {
-                        'step_number': idx,
-                        'title': part_title,  # Associate step with part
-                        'description': step_text,
-                        'image_url': None
-                    }
-                    steps.append(step)
+                    # Prepend step number to the description
+                    numbered_step = f"{idx}. {step_text}"
+                    steps_list.append(numbered_step)
 
-        return steps
+            # Store steps grouped by part name
+            if steps_list:
+                steps_by_part[part_title] = steps_list
+
+        # Convert dict to list of dicts with 'part_name' and 'steps'
+        return [
+            {'part_name': section_name, 'steps': steps}
+            for section_name, steps in steps_by_part.items()
+        ]
+
+    def _scrape_repair_guide_content(self, url: str) -> Optional[str]:
+        """
+        Scrape content from a repair guide page.
+
+        Extracts all text content from the repair__content div, including
+        paragraphs, steps, and additional information.
+
+        Args:
+            url: URL of the repair guide page
+
+        Returns:
+            str: Complete text content or None if failed
+        """
+        html = self._fetch_url(url)
+        if not html:
+            return None
+
+        try:
+            soup = BeautifulSoup(html, 'html.parser')
+
+            # Find the repair content div
+            repair_content = soup.find('div', class_='repair__content')
+            if not repair_content:
+                return None
+
+            # Find the main content table
+            content_table = repair_content.find('table')
+            if not content_table:
+                return None
+
+            # Get the second td which contains the actual content
+            tds = content_table.find_all('td')
+            if len(tds) < 2:
+                return None
+
+            content_td = tds[1]
+            text_parts = []
+
+            # Extract all text content in order
+            for elem in content_td.children:
+                if isinstance(elem, str):
+                    text = elem.strip()
+                    if text:
+                        text_parts.append(text)
+                elif elem.name == 'p':
+                    text = elem.get_text(strip=True)
+                    if text:
+                        text_parts.append(text)
+                elif elem.name == 'ol':
+                    # Extract numbered steps
+                    for step in elem.find_all('li'):
+                        step_text = step.get_text(strip=True)
+                        if step_text:
+                            text_parts.append(step_text)
+                elif elem.name == 'ul':
+                    # Extract additional info
+                    for item in elem.find_all('li'):
+                        item_text = item.get_text(strip=True)
+                        if item_text:
+                            text_parts.append(item_text)
+
+            # Combine all text parts
+            content = ' '.join(text_parts) if text_parts else None
+            return content
+
+        except Exception as e:
+            logger.warning(f"Error scraping repair guide content from {url}: {e}")
+            return None
 
     def _fetch_url(self, url: str, referer: str = None) -> Optional[str]:
         """

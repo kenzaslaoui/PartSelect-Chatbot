@@ -6,10 +6,6 @@ requests>=2.31.0
 beautifulsoup4>=4.12.0
 lxml>=4.9.0
 
-# Optional: For JavaScript-heavy pages (use if needed)
-# selenium>=4.15.0
-# playwright>=1.40.0
-
 # BACKEND (FastAPI)
 fastapi>=0.104.0
 uvicorn[standard]>=0.24.0
@@ -27,11 +23,6 @@ sentence-transformers>=2.2.2
 langchain>=0.1.0
 langchain-community>=0.0.10
 
-# Alternative vector DB options (choose one)
-# pinecone-client>=2.2.4
-# qdrant-client>=1.7.0
-# weaviate-client>=3.25.0
-
 # DATA PROCESSING
 pandas>=2.1.0
 numpy>=1.26.0
@@ -40,10 +31,3 @@ numpy>=1.26.0
 python-dotenv>=1.0.0
 tenacity>=8.2.3  # Retry logic
 httpx>=0.25.0  # Async HTTP client
-
-# DEVELOPMENT TOOLS (Optional)
-# pytest>=7.4.0
-# pytest-asyncio>=0.21.0
-# black>=23.11.0
-# flake8>=6.1.0
-# mypy>=1.7.0
